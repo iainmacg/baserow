@@ -17,6 +17,7 @@ Baserow is highly suitable as the **Data Layer** and **User Interface** for an R
 ### Weaknesses (The "Control" Aspect)
 *   **Lack of State Machine:** Baserow allows users to edit a "Status" field directly. In an MES, you want to *prevent* a user from changing "Etch" to "Deposition" unless the "Etch" step is actually completed.
 *   **Audit Trail:** While Baserow has basic row history, an MES requires a dedicated, queryable `History` table (Who moved Lot X from Step A to Step B at Time T?).
+    *   *Note on Versions:* The Enterprise version includes a persistent **Audit Log** (`AuditLogEntry` table). The Free/Open-Source version has an `Action` table used for Undo/Redo, but it is **temporary** (entries are deleted after ~2 hours by default) and cannot be used for compliance or long-term tracking.
 
 ---
 
